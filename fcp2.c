@@ -374,7 +374,7 @@ int FcpMessageDecode(FcpMessage *msg, const char *str, int buflen)
 	/* too many fields in message!!! */
 	if (fields>=maxfield)
 	{
-		printf("%s: Message '%s' has too many fields (>%d)!\n", __FUNCTION__, msg->Name, fields);
+		printf("%s: Message '%s' has too many fields (>%ld)!\n", __FUNCTION__, msg->Name, fields);
 		FcpMessageClear(msg);
 		return(-ENOMEM);
 	}
@@ -477,7 +477,7 @@ void FcpMessageDump(FcpMessage *msg)
 {
 	printf("<%s>\n", msg->Name);
 	for (size_t i=0;i<msg->FieldCount;i++)
-		printf("  %3d: [%s]=%s\n", i, msg->FieldName[i], msg->FieldValue[i]);
+		printf("  %3ld: [%s]=%s\n", i, msg->FieldName[i], msg->FieldValue[i]);
 }
 
 
